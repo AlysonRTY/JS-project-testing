@@ -1,0 +1,64 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  padding: 30px;
+  text-align: center;
+}
+
+/* Container for the flip effect, sets the perspective for the 3D effect */
+.flip-container {
+  perspective: 1000px;
+  width: 300px;
+  height: 400px;
+  position: relative;
+  margin: 50px auto;
+}
+
+/* The flip box flips when its hovered*/
+.flip-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1.5s;
+}
+
+/* Hover effect to flip the box */
+.flip-container:hover .flip-box {
+  transform: rotateY(180deg);
+}
+
+/* Front and back faces of the flip box first picture is visible by default, backside hidden initially*/
+.flip-front,
+.flip-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+/* Front face (visible by default) */
+.flip-front {
+  background-color: #bbb;
+  color: black;
+  z-index: 2;
+}
+
+/* Back face (hidden initially) */
+.flip-back {
+  background-color: #555;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.flip-front img,
+.flip-back img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
