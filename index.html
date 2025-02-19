@@ -10,37 +10,91 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="fullscreen-background"></div>
+    <h1>YuGiDex</h1>
     <div class="flip-container">
       <div class="flip-box">
         <div class="flip-front">
-          <img src="cardback.jpeg" alt="First Image" />
+          <img src="cardback.jpeg" alt="cardback" />
         </div>
         <div class="flip-back">
-          <img src="flamewingman.jpeg" alt="Second Image" />
+          <img src="flamewingman.jpeg" alt="Elemental Hero Flamewingman" />
         </div>
       </div>
     </div>
 
-    <h1>Yu-Gi-Oh Cards!</h1>
-    <label for="exampleDataList" class="form-label">Name</label>
-    <input
-      class="form-control"
-      list="datalistOptions"
-      id="exampleDataList"
-      placeholder="Type to search..."
-    />
-    <!-- <datalist id="datalistOptions">
-      <option value="San Francisco"></option>
-      <option value="New York"></option>
-      <option value="Seattle"></option>
-      <option value="Los Angeles"></option>
-      <option value="Chicago"></option>
-    </datalist> -->
-    <button type="button" class="btn btn-primary btn-lg">Search</button>
-
+    <h2>Coming Soon..</h2>
+    <div class="container text-center">
+      <div class="cool p-3 border">
+        <div class="row">
+          <div class="col-9">
+            <label for="exampleDataList" class="form-label"
+              ><h3>Card Name</h3></label
+            >
+            <input
+              class="form-control form-control-lg border-black"
+              list="datalistOptions"
+              id="exampleDataList"
+              placeholder="Enter Card Name"
+            />
+            <!-- <datalist id="datalistOptions">
+  <option value="San Francisco">
+  <option value="New York">
+  <option value="Seattle">
+  <option value="Los Angeles">
+  <option value="Chicago">
+</datalist> -->
+          </div>
+          <div class="col-3 justify-self-start align-self-end flex-start: row">
+            <button type="button" class="btn btn-primary btn-lg">DRAW</button>
+          </div>
+        </div>
+        <div class="row p-4">
+          <div class="col-6 col-md-4">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Card Type</option>
+              <option value="1">Normal Monster</option>
+              <option value="2">Flip Effect Monster</option>
+              <option value="3">Trap Card</option>
+            </select>
+          </div>
+          <div class="col-6 col-md-4">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Attribute</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-6 col-md-4">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Level</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="yugiohcards.js"></script>
     <script src="main.js"></script>
   </body>
