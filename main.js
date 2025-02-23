@@ -155,3 +155,13 @@ searchButton.addEventListener("click", () => {
 // for (let i = 0; i < dataNames.length; i++){
 //     console.log(dataNames[i]);
 // }
+
+
+const arr10 = yugiohCards.map((yugiohCard) => {
+    return {
+        level: yugiohCard.level,
+        attribute: yugiohCard.attribute,
+        type: yugiohCard.type
+    } 
+})
+console.log(arr10);
