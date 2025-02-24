@@ -1,5 +1,5 @@
 const data = response.data
-console.log(data);
+// console.log(data);
 
 // const tbody = document.getElementById("tbody")
 
@@ -37,26 +37,21 @@ searchbar.addEventListener("keyup", (e) => {
         console.log(searchCard);
 });
 
-const nameArr = yugiohCards.map((yugiohCard) => {
-    // console.log(yugiohCard)
-    const name = yugiohCard.name
-    return name;
-})
-// console.log(nameArr);
-const cardNameList = nameArr
-// console.log(cardNameList);
+
 const datalist = document.getElementById("datalistOptions");
+const exampleDataList = document.getElementById("exampleDataList");
+const searchButton = document.getElementById("searchButton");
+const result = document.getElementById("result");
+const cardImage = document.getElementById("cardImage");
+const cardType = document.getElementById("cardType");
+const cardAttribute = document.getElementById("cardAttribute");
+const cardLevel = document.getElementById("cardLevel");
 
 yugiohCards.forEach(yugiohCard => {
     const option = document.createElement("option");
     option.value = yugiohCard.name;
     datalist.appendChild(option);
 });
-
-const exampleDataList = document.getElementById("exampleDataList");
-const searchButton = document.getElementById("searchButton");
-const result = document.getElementById("result");
-const cardImage = document.getElementById("cardImage");
 
 
 searchButton.addEventListener("click", () => {
@@ -67,18 +62,16 @@ searchButton.addEventListener("click", () => {
     const selectedCard = yugiohCards.find(yugiohCard => yugiohCard.name === selectedCardName);
 
     if (selectedCard) {
-        // Display the selected card name
         result.textContent = `DRAWWWWWW ${selectedCard.name}`;
 
-        // Get the first image URL from the card_images array
             const imageUrl = selectedCard.card_images[0].image_url_small;
 
         // Display the card image
         cardImage.src = imageUrl;
-        cardImage.style.display = "block"; // Make the image visible
+        cardImage.style.display = "block"; 
     } else {
         result.textContent = "Card not found.";
-        cardImage.style.display = "none"; // Hide the image
+        cardImage.style.display = "none";
     }
 
 // console.log(cardImage);
@@ -157,11 +150,39 @@ searchButton.addEventListener("click", () => {
 // }
 
 
-const arr10 = yugiohCards.map((yugiohCard) => {
-    return {
-        level: yugiohCard.level,
-        attribute: yugiohCard.attribute,
-        type: yugiohCard.type
-    } 
-})
-console.log(arr10);
+// const arr10 = yugiohCards.map((yugiohCard) => {
+//     return {
+//         level: yugiohCard.level,
+//         attribute: yugiohCard.attribute,
+//         type: yugiohCard.type
+//     } 
+// })
+// console.log(arr10);
+
+// const card1 = yugiohCards.attribute
+// const card2 = yugiohCards.level
+// const card3 = yugiohCards.type
+
+// const arr10 = yugiohCards.map((yugiohCard) => {
+//     if (yugiohCard.attribute !== undefined) {
+
+    
+//         result += yugiohCard.attribute;
+//     }
+// })
+// console.log(arr10);
+
+
+
+// const unique = cardAtt.filter((value, index, self) =>  self.indexOf(value) === index)
+
+// const unique2 = cardLvl.filter((value, index, self) => self.indexOf(value) === index)
+
+
+// const unique3 = card1.filter((value, index, self) => { self.indexOf(value) === index
+//     if (value !== undefined) {
+//         result += value;
+//      }
+// })
+// console.log(unique3);
+
