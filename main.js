@@ -3,7 +3,6 @@
 const data = response.data
 // console.log(data);
 const yugiohCards = data
-const cardsLevel = yugiohCards.level
 
 
 // ------------------------------------------------------------------------------------------
@@ -15,7 +14,6 @@ const cardsLevel = yugiohCards.level
 const datalist = document.getElementById("datalistOptions");
 const exampleDataList = document.getElementById("exampleDataList");
 const searchButton = document.getElementById("searchButton");
-const result = document.getElementById("result");
 const cardImage = document.getElementById("cardImage");
 const cardType = document.getElementById("cardType");
 const cardAttribute = document.getElementById("cardAttribute");
@@ -125,7 +123,7 @@ uniqueTypes.forEach(type => {
     cardType.appendChild(optionElement);
 })
 
-
+console.log(`your unique types are ${uniqueTypes}`);
 
 
 // ----------------------------------------------------------------------
@@ -139,12 +137,11 @@ const filterCardsByAttribute = (attribute) => {
   const displayCards = (cards) => {
     cardDisplay.innerHTML = '';
 
-    // Loop through the filtered cards and create HTML for each card
+
     cards.forEach(card => {
       const cardElement = document.createElement('div');
       cardElement.className = 'card';
 
-      // Access the first image in the `card_images` array
       if (card.card_images && card.card_images.length > 0) {
         const cardImage = document.createElement('img');
         cardImage.src = card.card_images[0].image_url;
@@ -165,6 +162,11 @@ const filterCardsByAttribute = (attribute) => {
 
   
 //----------------------------------------------------------------------
+
+// combinig everything? 
+const filterCardsByProperties = (filters) => {
+  
+}
 
 
 
@@ -340,9 +342,3 @@ const filterCardsByAttribute = (attribute) => {
 //     const searchCard = e.target.value;
 //         console.log(searchCard);
 // });
-
-
-
-
-
-

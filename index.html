@@ -65,7 +65,7 @@
               class="form-select"
               aria-label="Default select example"
             >
-              <option selected>Card Type</option>
+              <option value="">Card Type</option>
             </select>
           </div>
           <div class="col-6 col-md-4">
@@ -74,7 +74,7 @@
               class="form-select"
               aria-label="Default select example"
             >
-              <option selected>Attribute</option>
+              <option value="">Attribute</option>
             </select>
           </div>
           <div class="col-6 col-md-4">
@@ -83,16 +83,21 @@
               class="form-select"
               aria-label="Default select example"
             >
-              <option selected>Level</option>
+              <option value="">Level</option>
             </select>
           </div>
         </div>
       </div>
     </div>
-
-    <p id="result"></p>
-    <img id="cardImage" src="" alt="Card Image" style="display: none" />
+    <img
+      class="cardImage"
+      id="cardImage"
+      src=""
+      alt="Card Image"
+      style="display: none"
+    />
     <div id="cardDisplay" class="card-container"></div>
+    <div id="cardDisplay"></div>
 
     <!-- <table>
       <thead>
