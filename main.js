@@ -47,9 +47,6 @@ searchButton.addEventListener("click", () => {
         cardImage.style.display = "block"; 
     } 
 
-// console.log(cardImage);
-// console.log(selectedCard);
-
 });
 
 // ------------------------------------------------------------------------------------------
@@ -131,35 +128,94 @@ console.log(`your unique types are ${uniqueTypes}`);
 
 
 const filterCardsByAttribute = (attribute) => {
-    return yugiohCards.filter(card => card.attribute === attribute);
-  };
+  return yugiohCards.filter(card => card.attribute === attribute);
+};
 
-  const displayCards = (cards) => {
-    cardDisplay.innerHTML = '';
+const displayCards = (cards) => {
+  cardDisplay.innerHTML = '';
 
+  cards.forEach(card => {
+    const cardElement = document.createElement('div');
+    cardElement.className = 'card';
 
-    cards.forEach(card => {
-      const cardElement = document.createElement('div');
-      cardElement.className = 'card';
+    if (card.card_images && card.card_images.length > 0) {
+      const cardImage = document.createElement('img');
+      cardImage.src = card.card_images[0].image_url;
+      cardImage.alt = card.name;
 
-      if (card.card_images && card.card_images.length > 0) {
-        const cardImage = document.createElement('img');
-        cardImage.src = card.card_images[0].image_url;
-        cardImage.alt = card.name;
-        cardElement.appendChild(cardImage);
-      }
-      cardDisplay.appendChild(cardElement);
-    });
-  };
-
-  searchButton.addEventListener('click', () => {
-    const selectedAttribute = cardAttribute.value;
-
-    const filteredCards = filterCardsByAttribute(selectedAttribute);
-
-    displayCards(filteredCards);
+           
+      cardImage.addEventListener('click', () => {
+        console.log('Card Image Clicked:', card); 
+        openModal(card);
+      });
+      cardElement.appendChild(cardImage);
+    }
+    cardDisplay.appendChild(cardElement);
   });
+};
 
+
+const openModal = (card) => {
+  console.log('Card Data:', card);
+  const modal = document.getElementById('cardModal');
+  const modalCardName = document.getElementById('modalCardName');
+  const modalCardImage = document.getElementById('modalCardImage');
+  const modalCardDescription = document.getElementById('modalCardDescription');
+  const modalCardType = document.getElementById('modalCardType');
+  const modalCardAttribute = document.getElementById('modalCardAttribute');
+  const modalCardLevel = document.getElementById('modalCardLevel');
+    const modalCardATK = document.getElementById('modalCardATK');
+  const modalCardDEF = document.getElementById('modalCardDEF');
+
+
+  modalCardName.textContent = card.name;
+  modalCardImage.src = card.card_images[0].image_url;
+  modalCardImage.alt = card.name;
+  modalCardDescription.textContent = card.desc || 'No description available.';
+  modalCardType.textContent = card.type || 'Unknown';
+  modalCardAttribute.textContent = card.attribute || 'Unknown';
+  modalCardLevel.textContent = card.level || 'Unknown';
+  modalCardATK.textContent = card.atk || 'Unknown';
+  modalCardDEF.textContent = card.def || 'Unknown';
+
+  console.log('Modal Elements:', {
+    modalCardName,
+    modalCardImage,
+    modalCardDescription,
+    modalCardType,
+    modalCardAttribute,
+    modalCardLevel,
+    modalCardATK,
+    modalCardDEF,
+  });
+ 
+  modal.style.display = 'block';
+};
+
+
+const closeModal = () => {
+  const modal = document.getElementById('cardModal');
+  modal.style.display = 'none';
+};
+
+
+document.getElementById('closeModal').addEventListener('click', closeModal);
+
+
+window.addEventListener('click', (event) => {
+  const modal = document.getElementById('cardModal');
+  if (event.target === modal) {
+    closeModal();
+  }
+});
+
+searchButton.addEventListener('click', () => {
+  const selectedAttribute = cardAttribute.value;
+  const filteredCards = filterCardsByAttribute(selectedAttribute);
+  displayCards(filteredCards);
+});
+
+// need to fix
   
 //----------------------------------------------------------------------
 
@@ -342,3 +398,4 @@ const filterCardsByProperties = (filters) => {
 //     const searchCard = e.target.value;
 //         console.log(searchCard);
 // });
+
