@@ -156,7 +156,9 @@ const displayCards = (cards) => {
 
 
 const openModal = (card) => {
-  console.log('Card Data:', card);
+  console.log('Card Data:', card); 
+
+
   const modal = document.getElementById('cardModal');
   const modalCardName = document.getElementById('modalCardName');
   const modalCardImage = document.getElementById('modalCardImage');
@@ -164,13 +166,12 @@ const openModal = (card) => {
   const modalCardType = document.getElementById('modalCardType');
   const modalCardAttribute = document.getElementById('modalCardAttribute');
   const modalCardLevel = document.getElementById('modalCardLevel');
-    const modalCardATK = document.getElementById('modalCardATK');
+  const modalCardATK = document.getElementById('modalCardATK');
   const modalCardDEF = document.getElementById('modalCardDEF');
 
-
-  modalCardName.textContent = card.name;
-  modalCardImage.src = card.card_images[0].image_url;
-  modalCardImage.alt = card.name;
+  modalCardName.textContent = card.name || 'Unknown';
+  modalCardImage.src = card.card_images[0].image_url || '';
+  modalCardImage.alt = card.name || 'Card Image';
   modalCardDescription.textContent = card.desc || 'No description available.';
   modalCardType.textContent = card.type || 'Unknown';
   modalCardAttribute.textContent = card.attribute || 'Unknown';
@@ -178,29 +179,15 @@ const openModal = (card) => {
   modalCardATK.textContent = card.atk || 'Unknown';
   modalCardDEF.textContent = card.def || 'Unknown';
 
-  console.log('Modal Elements:', {
-    modalCardName,
-    modalCardImage,
-    modalCardDescription,
-    modalCardType,
-    modalCardAttribute,
-    modalCardLevel,
-    modalCardATK,
-    modalCardDEF,
-  });
- 
   modal.style.display = 'block';
 };
-
 
 const closeModal = () => {
   const modal = document.getElementById('cardModal');
   modal.style.display = 'none';
 };
 
-
 document.getElementById('closeModal').addEventListener('click', closeModal);
-
 
 window.addEventListener('click', (event) => {
   const modal = document.getElementById('cardModal');
