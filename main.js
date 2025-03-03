@@ -156,8 +156,8 @@ const displayCards = (cards) => {
 
 
 const openModal = (card) => {
-  console.log('Card Data:', card); 
-
+  console.log('Card Data:', card);
+  console.log('Card Images:', card.card_images);
 
   const modal = document.getElementById('cardModal');
   const modalCardName = document.getElementById('modalCardName');
@@ -170,7 +170,7 @@ const openModal = (card) => {
   const modalCardDEF = document.getElementById('modalCardDEF');
 
   modalCardName.textContent = card.name || 'Unknown';
-  modalCardImage.src = card.card_images[0].image_url || '';
+  modalCardImage.src = card.card_images?.[0]?.image_url || '';
   modalCardImage.alt = card.name || 'Card Image';
   modalCardDescription.textContent = card.desc || 'No description available.';
   modalCardType.textContent = card.type || 'Unknown';
@@ -201,8 +201,23 @@ searchButton.addEventListener('click', () => {
   const filteredCards = filterCardsByAttribute(selectedAttribute);
   displayCards(filteredCards);
 });
-
 // need to fix
+
+const resetFilters = () => {
+  cardAttribute.value = '';
+  cardType.value = '';
+  cardLevel.value = '';
+  exampleDataList.value = '';
+
+  // Clear the card display and hide the "No cards found" message
+  cardDisplay.innerHTML = '';
+  const cardNotFoundMessage = document.getElementById('cardNotFoundMessage');
+  cardNotFoundMessage.style.display = 'none';
+};
+
+resetButton.addEventListener('click', resetFilters);
+
+
   
 //----------------------------------------------------------------------
 

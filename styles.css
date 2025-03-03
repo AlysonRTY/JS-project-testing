@@ -122,17 +122,15 @@ h2 {
 }
 
 .modal-content {
-  background-color: #fff;
-  margin: 10% auto;
+  background-color: #fefefe;
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
   max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#closeModal {
+.close {
   color: #aaa;
   float: right;
   font-size: 28px;
@@ -140,6 +138,22 @@ h2 {
   cursor: pointer;
 }
 
-#closeModal:hover {
-  color: #000;
+.close:hover {
+  color: black;
+}
+
+#resetButton {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#resetButton:hover {
+  background-color: #d32f2f;
 }
